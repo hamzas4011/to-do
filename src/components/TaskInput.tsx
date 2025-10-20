@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
 
-<input placeholder="Add a new task" />
-
-<button>Add task</button>
-
-export default function TaskInput();
+export default function TaskInput() {
+    return (
+        <div className="task-input">
+            <input type="text" placeholder="Enter your task here..." />
+            <button>Add Task</button>
+        </div>
+    )
+}
