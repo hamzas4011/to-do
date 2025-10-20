@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 
 export default function TaskInput() {
     const [text, setText] = useState('');
+
+    function handleAdd() {
+        console.log('Task added: ', text);
+        setText('');
+    }
+
     return (
         <div className="task-input">
             <input
@@ -10,7 +16,7 @@ export default function TaskInput() {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 />
-                <button>Add task</button>
+                <button onClick={handleAdd}>Add task</button>
         </div>
-    )
+    );
 }
