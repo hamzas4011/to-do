@@ -1,52 +1,35 @@
-import { useState } from "react";
-import TaskInput from "./components/TaskInput";
-import TaskList from "./components/TaskList";
+import React, { useState } from "react";
 
-type Task = {
-  id: string;
-  title: string;
-  completed: boolean;
-  createdAt: string;
+type Props = {
+  onAddTask: (title: string) => void;
 };
 
-export default function App() {
-  const [tasks, setTasks] = useState<Task[]>([]);
+export default function TaskInput({ onAddTask }: Props) {
+  const [text, setText] = useState("");
 
-  // add a new task
-  function handleAddTask(title: string) {
-    const newTask: Task = {
-      id: crypto.randomUUID(),
-      title,
-      completed: false,
-      createdAt: new Date().toISOString(),
-    };
-    setTasks((prev) => [newTask, ...prev]);
-  }
-  function handleToggleTask(id: string) {
-    setTasks((prev) =>
-      prev.map((t) =>
-        t.id === id ? { ...t, completed: !t.completed } : t
-      )
-    );
-  }
-
-  function handleDeleteTask(id: string) {
-    setTasks((prev) => prev.filter((t) => t.id !== id));
+  function handleAdd() {
+    const title = text.trim();
+    if (!title) return;
+    onAddTask(title); // ✅ send the new task to App.tsx
+    setText("");
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-100 p-6">
-      <h1 className="text-3xl font-bold text-center mb-6">My To-Do App</h1>
-
-      <div className="w-full max-w-md">
-        <TaskInput onAddTask={handleAddTask} />
-      </div>
-
-      <TaskList
-        tasks={tasks}
-        onToggle={handleToggleTask}
-        onDelete={handleDeleteTask}
+    <div className="flex items-center justify-center gap-2 mt-6">
+      <input
+        type="text"
+        placeholder="Enter your task here..."
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && handleAdd()}
+        className="w-full max-w-md border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
+      <button
+        onClick={handleAdd}
+        className="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
+      >
+        Add Task
+      </button>
     </div>
   );
 }
