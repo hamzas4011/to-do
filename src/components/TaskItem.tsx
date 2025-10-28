@@ -1,10 +1,5 @@
 import React from "react";
-
-type Task = {
-  id: string;
-  title: string;
-  completed: boolean;
-};
+import type { Task } from "../types/task";
 
 type Props = {
   task: Task;
@@ -14,19 +9,19 @@ type Props = {
 
 export default function TaskItem({ task, onToggle, onDelete }: Props) {
   return (
-    <li className="flex items-center justify-between bg-white border border-gray-200 rounded-lg p-3 shadow-sm hover:shadow-md transition">
-      <div className="flex items-center gap-2">
-        {/* Checkbox with accessible label */}
+    <li className="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-lg p-3 shadow-sm hover:shadow-md transition">
+      <div className="flex items-center gap-3">
         <input
           id={`checkbox-${task.id}`}
           type="checkbox"
           checked={task.completed}
           onChange={() => onToggle(task.id)}
           className="h-5 w-5 accent-blue-600 cursor-pointer"
-          aria-label={`Mark task "${task.title}" as ${task.completed ? "incomplete" : "complete"}`}
+          aria-label={`Mark task "${task.title}" as ${
+            task.completed ? "incomplete" : "complete"
+          }`}
         />
 
-        {/* Task title */}
         <label
           htmlFor={`checkbox-${task.id}`}
           className={`cursor-pointer text-gray-800 ${
@@ -37,12 +32,11 @@ export default function TaskItem({ task, onToggle, onDelete }: Props) {
         </label>
       </div>
 
-      {/* Delete button with title for screen readers */}
       <button
         onClick={() => onDelete(task.id)}
         title={`Delete task "${task.title}"`}
         aria-label={`Delete task "${task.title}"`}
-        className="text-red-500 hover:text-red-700 font-medium transition"
+        className="text-red-500 hover:text-red-700 font-medium transition text-lg"
       >
         ✕
       </button>

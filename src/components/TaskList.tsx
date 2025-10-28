@@ -1,11 +1,6 @@
 import React from "react";
 import TaskItem from "./TaskItem";
-
-type Task = {
-  id: string;
-  title: string;
-  completed: boolean;
-};
+import type { Task } from "../types/task";
 
 type Props = {
   tasks: Task[];
@@ -23,7 +18,7 @@ export default function TaskList({ tasks, onToggle, onDelete }: Props) {
   }
 
   return (
-    <ul className="w-full max-w-md mx-auto mt-6 space-y-2">
+    <ul className="w-full mt-6 space-y-2">
       {tasks.map((task) => (
         <TaskItem
           key={task.id}
