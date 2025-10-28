@@ -1,73 +1,38 @@
-# React + TypeScript + Vite
+# 📝 My To-Do App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple, responsive, and accessible To-Do web application built with **React**, **TypeScript**, and **Tailwind CSS**.  
+You can add, complete, and delete tasks — everything stored locally in your browser.  
+Designed with focus on **clean UI**, **universal design**, and **keyboard accessibility**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Features
 
-## React Compiler
+- ➕ Add new tasks easily  
+- ✅ Mark tasks as completed or uncompleted  
+- ❌ Delete tasks instantly  
+- 🎨 Modern responsive UI with Tailwind CSS  
+- ♿ Accessible with ARIA labels and clear focus states  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧰 Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Technology | Purpose |
+|-------------|----------|
+| **React.js + TypeScript** | Core frontend framework and type safety |
+| **Tailwind CSS** | Utility-first styling for responsive UI |
+| **Vite** | Lightning-fast build tool and dev server |
+| **HTML5 + ARIA** | Accessibility and semantic structure |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🖼️ Screenshots
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+| Start Page | Adding Tasks | Managing Tasks |
+|-------------|---------------|----------------|
+| ![Screenshot 1](https://github.com/user-attachments/assets/fa3c800a-cb9a-4886-a1b9-77215eed4a41) | ![Screenshot 2](https://github.com/user-attachments/assets/0349ceb3-0f60-4bad-acf7-ed925dff0917) | ![Screenshot 3](https://github.com/user-attachments/assets/dafd635d-9c08-4b7b-98ae-0bd86f50f772) |
+---
+1️⃣ *First image* — Start screen with input and button to add tasks  
+2️⃣ *Second image* — Task list displayed after adding tasks  
+3️⃣ *Third image* — Demonstrates deleting and marking tasks as complete  
