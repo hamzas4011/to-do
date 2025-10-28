@@ -1,7 +1,7 @@
 # 📝 My To-Do App
 
 A simple, responsive, and accessible To-Do web application built with **React**, **TypeScript**, and **Tailwind CSS**.  
-You can add, complete, and delete tasks — everything stored locally in your browser.  
+You can add, complete, and delete tasks.
 Designed with focus on **clean UI**, **universal design**, and **keyboard accessibility**.
 
 ---
